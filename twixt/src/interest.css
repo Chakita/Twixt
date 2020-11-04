@@ -1,0 +1,40 @@
+.heading{
+    font-size: 4rem;
+    font-weight: lighter;
+    margin-left:32%;
+    margin-top:2%;
+}
+
+.card {
+    width:280px;
+    display: block;
+    margin-left: 120px;
+    margin-top: 50px;
+    box-shadow: 10px 10px 20px 10px;
+}
+
+.card-header {
+    height: 200px;
+    width: 100%;
+    padding: 15px;
+    width:100%;
+    background-size:cover;
+    color:#fff;
+}
+
+.card-body {
+    padding: 15px;
+    background-color:#fff;
+    width:100%;
+}
+
+.button{
+    margin-left: 100px;
+}
+.body-content {
+    padding-bottom: 20px;
+    font-size: 15px;
+    font-weight: lighter;
+    line-height: 1.8;
+}
+
