@@ -8,9 +8,12 @@ app.engine("jade", require("jade").__express);
 app.get("/discussions", function (req, res) {
   res.render("page");
 });
-app.use(express.static(__dirname + "/public"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+app.use(express.static(path.join(__dirname, "build")));
 app.use(cors({ credentials: true, origin: true }));
-var port = process.env.PORT || 3700;
+var port = 3700;
 var server = app.listen(port);
 var io = require("socket.io")().listen(server);
 io.sockets.on("connection", function (socket) {
