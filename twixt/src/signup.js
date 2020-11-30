@@ -19,7 +19,6 @@ const SignUp=()=>{
         .then((resp)=>{
                 if(resp){
                     history.push("/search");
-                    alert("Successful register");
                 }
                 else{
                     alert("Unsuccessful registration");
