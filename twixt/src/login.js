@@ -1,65 +1,50 @@
-import React from "react"
-import "./login.css"
-import {Link} from "react-router-dom";
+import React ,{useState} from 'react';
+import "./styling/login.css";
+import {Link,useHistory} from "react-router-dom";
+import axios from 'axios'
 
-class Login extends React.Component{
-    constructor(props , context){
-        super(props , context);
+const Login=()=>{
+    const [mail,sete]=useState('');
+    const [pass,setpass]=useState('');
+    const history=useHistory();
 
-        this.state={
-            email:"",
-            password:"",
-        };
-    }
-    
-    handleChange=(e)=>{
-        var ele=e.target.id;
-        var val=e.target.value;
-        switch(ele){
-            case "email":{
-                            this.setState({
-                                email:val,
-                            });
-                            break;
-                        }
-
-            case "password":{
-                                this.setState({
-                                    password:val,
-                                });
-                                break;
-                            }
-            default:break;
-        }    
-    }
-
-    handleSubmit=(e)=>{
+    function handleSubmit(e){
         e.preventDefault();
+
+        let user_data={
+            email:mail,
+            password:pass
+        }
+        axios.post("http://localhost:8080",user_data)
+        .then((resp)=>{
+          if(resp.data=="1")
+            history.push('/home');
+          else if(resp.data=="0")
+            alert("Login was unsuccessfull try again");
+        })
+        .catch((err)=>console.log(err));
     }
-    
-    render(){
-        return(
-            <div className="wrapper">
-                <div className="form-wrapper">
-                    <h1>Twixt</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="email">
-                            <label htmlFor="email">Email address</label>
-                            <input required onChange={this.handleChange} type="email" id="email"/>
-                        </div>
-                        <div className="password">
-                            <label htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} type="password"  id="password"/>
-                        </div>
-                        <div className="login">
-                            <button type="submit" onSubmit={this.handleSubmit}>Login</button>
-                            <small>Don't have a account?<Link to="/signup">Click here</Link></small>
-                        </div>
-                    </form>
-                </div>
+    return(
+        <div className="wrapper">
+            <div className="form-wrapper">
+                <h1>Twixt</h1>
+                <form onSubmit={(event)=>handleSubmit(event)}>
+                    <div className="email">
+                        <label htmlFor="email">Email address</label>
+                        <input required onChange={(event)=>sete(event.target.value)} value={mail} type="email" id="email" name="email"/>
+                    </div>
+                    <div className="password">
+                        <label htmlFor="password">Password</label>
+                        <input onChange={(event)=>setpass(event.target.value)} value={pass} type="password"  id="password" name="password"/>
+                    </div>
+                    <div className="login">
+                        <button type="submit">Login</button>
+                        <small>Don't have a account?<Link to="/signup">Click here</Link></small>
+                    </div>
+                </form>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Login;
