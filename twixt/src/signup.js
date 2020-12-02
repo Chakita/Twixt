@@ -27,6 +27,17 @@ const SignUp = () => {
       })
       .catch((err) => console.log(err));
   }
+        axios.post("http://localhost:8080/signup" , user_data)
+        .then((resp)=>{
+                if(resp){
+                    history.push("/search");
+                }
+                else{
+                    alert("Unsuccessful registration");
+                }
+        })
+        .catch(err=>console.log(err));
+    }
 
   return (
     <div className="wrapper">
