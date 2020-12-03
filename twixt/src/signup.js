@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./styling/signup.css";
 
-const SignUp = () => {
+/*const SignUp = () => {
   const [mail, sete] = useState("");
   const [pass, setpass] = useState("");
 
@@ -27,19 +27,19 @@ const SignUp = () => {
       })
       .catch((err) => console.log(err));
   }
-        axios.post("http://localhost:8080/signup" , user_data)
-        .then((resp)=>{
-                if(resp){
-                    history.push("/search");
-                }
-                else{
-                    alert("Unsuccessful registration");
-                }
-        })
-        .catch(err=>console.log(err));
-    }
+  axios
+    .post("http://localhost:8080/signup", user_data)
+    .then((resp) => {
+      if (resp) {
+        history.push("/search");
+      } else {
+        alert("Unsuccessful registration");
+      }
+    })
+    .catch((err) => console.log(err));
+};
 
-  return (
+return (
     <div className="wrapper">
       <form onSubmit={(event) => handleSubmit(event)} className="form-wrapper">
         <h1>Sign Up</h1>
@@ -73,4 +73,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp;*/

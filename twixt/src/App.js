@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import ChatRoom from "./ChatRoom/ChatRoom";
 import InterestPage from "./interest.js";
-import SignUp from "./signup.js";
+//import SignUp from "./signup.js";
 import HomePage from "./homepage.js";
 import Login from "./login.js";
-import Chatroom from "./Chatroom.js";
+//import Chatroom from "./Chatroom.js";
 
 class App extends React.Component {
   render() {
@@ -19,12 +19,7 @@ class App extends React.Component {
               return <Login />;
             }}
           />
-          <Route
-            path="/signup"
-            render={() => {
-              return <SignUp />;
-            }}
-          />
+
           <Route
             path="/search"
             render={() => {
@@ -33,9 +28,11 @@ class App extends React.Component {
           />
           <Route
             path="/discussion"
+            component={ChatRoom}
+            /*path="/discussion"
             render={() => {
               return <Chatroom />;
-            }}
+            }}*/
           />
           <Route
             path="/home"
