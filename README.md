@@ -1,2 +1,2 @@
 # Twixt
-Repo for Web tech project
+Repo for UE19CS204 project.
