@@ -2,6 +2,9 @@ import React ,{useState} from 'react';
 import "./styling/login.css";
 import {Link,useHistory} from "react-router-dom";
 import axios from 'axios'
+import jwt_decode from "jwt-decode";
+
+var username;
 
 const Login=()=>{
     const [mail,sete]=useState('');
@@ -18,7 +21,8 @@ const Login=()=>{
         axios.post("http://localhost:8080",user_data)
         .then((resp)=>{
           if(resp.data.code=="1"){
-            console.log("jwt token is:"+resp.data.token);
+            var username = jwt_decode(resp.data.token).em;
+            console.log("user is:"+username);
             history.push('/home');
           }
           else if(resp.data.code=="0")
@@ -49,4 +53,5 @@ const Login=()=>{
     );
 }
 
+export const user=username;
 export default Login;
