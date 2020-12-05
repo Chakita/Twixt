@@ -21,7 +21,8 @@ const Login=()=>{
         axios.post("http://localhost:8080",user_data)
         .then((resp)=>{
           if(resp.data.code=="1"){
-            var username = jwt_decode(resp.data.token).em;
+            username = jwt_decode(resp.data.token).em;
+            localStorage.setItem("username" , username);
             console.log("user is:"+username);
             history.push('/home');
           }
@@ -53,5 +54,4 @@ const Login=()=>{
     );
 }
 
-export const user=username;
 export default Login;
