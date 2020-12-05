@@ -1,9 +1,11 @@
+//Create the server
 const server = require("http").createServer();
 const io = require("socket.io")(server);
-
+//Listen on port 4000
 const PORT = 4000;
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage";
 
+//When a client connects on this port
 io.on("connection", (socket) => {
   console.log(`Client ${socket.id} connected`);
 
