@@ -17,9 +17,11 @@ const Login=()=>{
         }
         axios.post("http://localhost:8080",user_data)
         .then((resp)=>{
-          if(resp.data=="1")
+          if(resp.data.code=="1"){
+            console.log("jwt token is:"+resp.data.token);
             history.push('/home');
-          else if(resp.data=="0")
+          }
+          else if(resp.data.code=="0")
             alert("Login was unsuccessfull try again");
         })
         .catch((err)=>console.log(err));
