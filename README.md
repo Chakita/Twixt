@@ -1,2 +1,3 @@
 # Twixt
-Repo for UE19CS204 project.
+Repository for Web Technologies(UE19CS204) project.
+
