@@ -13,6 +13,9 @@ import Carousel from "react-bootstrap/Carousel";
 import music from "./images/music.png";
 import dance from "./images/dance.png";
 import sports from "./images/sports.png";
+import Event1 from "./images/Event1.jpg";
+import Event2 from "./images/Event2.jpg";
+import Event3 from "./images/Event3.jpg";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -44,26 +47,24 @@ const ImageRotator = () => {
   return (
     <Carousel>
       <Carousel.Item interval={4000}>
-        <img className="d-block w-50" src={sports} alt="First slide" />
+        <img className="d-block w-50" src={Event1} alt="First slide" />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Sports Event at PES</h3>
+          <p>Get,Set,Play!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={4000}>
-        <img className="d-block w-50" src={music} alt="Third slide" />
+        <img className="d-block w-50" src={Event2} alt="Third slide" />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Ideathon at F block !</h3>
+          <p>Let us brain storm for a better future!</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={4000}>
-        <img className="d-block w-50" src={dance} alt="Third slide" />
+        <img className="d-block w-50" src={Event3} alt="Third slide" />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Musical event at PES University</h3>
+          <p>Let the music soothe your soul.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
