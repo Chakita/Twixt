@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./styling/people.css"
 import React, { Component } from "react";
 
 class People extends Component {
