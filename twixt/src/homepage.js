@@ -26,6 +26,9 @@ const NavBar = () => {
           <Link to="/discussion">Discussions</Link>
         </li>
         <li className="itemStyle">
+          <Link to="/people">People</Link>
+        </li>
+        <li className="itemStyle">
           <Link to="/">Sign Out</Link>
         </li>
       </ul>
