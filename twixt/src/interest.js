@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./styling/interest.css";
 import music from "./images/music.png";
 import dance from "./images/dance.png";
@@ -8,8 +8,7 @@ import ml from "./images/ml.png";
 import webdev from "./images/webdev.png";
 import Axios from "axios";
 
-
-const interests = [] 
+const interests = [];
 
 class CardHeader extends React.Component {
   render() {
@@ -29,7 +28,7 @@ class Button extends React.Component {
       textAlign: "center",
     };
     return (
-      <button  className="btn btn-outline-info" style={margin}>
+      <button className="btn btn-outline-info" style={margin}>
         Add
       </button>
     );
@@ -37,40 +36,35 @@ class Button extends React.Component {
 }
 
 function CardBody(props) {
+  const [clicked, setClicked] = useState(false);
 
-    const [clicked, setClicked] = useState(false)
-  
-    function clicker(){
-      if(clicked){
-        setClicked(false);
-    
-        interests.splice (interests.indexOf(props.title), 1);
-      }
-        
-      else{
-        setClicked(true);
-        interests.push(props.title)
-      }
-        
-      
+  function clicker() {
+    if (clicked) {
+      setClicked(false);
+
+      interests.splice(interests.indexOf(props.title), 1);
+    } else {
+      setClicked(true);
+      interests.push(props.title);
     }
-    return (
-      <div className="card-body">
-        <h2>{props.title}</h2>
-        <p className="body-content">{props.text}</p>
-        <button 
+  }
+  return (
+    <div className="card-body">
+      <h2>{props.title}</h2>
+      <p className="body-content">{props.text}</p>
+      <button
         style={{
-            
-            marginLeft: "80px",
-            width: "75px",
-            textAlign: "center",
-            }} 
-     
-    className={clicked? "btn btn-success":"btn btn-outline-info"}
-    onClick={clicker}>{clicked? "Added" : "Add"}</button>
-      </div>
-    );
-  
+          marginLeft: "80px",
+          width: "75px",
+          textAlign: "center",
+        }}
+        className={clicked ? "btn btn-success" : "btn btn-outline-info"}
+        onClick={clicker}
+      >
+        {clicked ? "Added" : "Add"}
+      </button>
+    </div>
+  );
 }
 
 class Card extends React.Component {
@@ -84,27 +78,26 @@ class Card extends React.Component {
   }
 }
 
-
-
 function InterestPage() {
-
- 
-
   return (
     <div>
-      <button 
+      <button
         style={{
-        
-        marginLeft: "80px",
-        width: "75px",
-        textAlign: "center",
-        }} 
-        onClick={() => 
-          Axios.post("http://localhost:8080/addInterest",{interests,username:localStorage.getItem("username")})
-          .then(result => console.log(result))
-          .catch(err => console.log(err))
+          marginLeft: "80px",
+          width: "75px",
+          textAlign: "center",
+        }}
+        onClick={() =>
+          Axios.post("http://localhost:8080/addInterest", {
+            interests,
+            username: localStorage.getItem("username"),
+          })
+            .then((result) => console.log(result))
+            .catch((err) => console.log(err))
         }
-      >Continue</button>
+      >
+        Continue
+      </button>
 
       <h1 className="heading">Pick your interests</h1>
       <table>
@@ -157,7 +150,6 @@ function InterestPage() {
           </tr>
         </tbody>
       </table>
-
     </div>
   );
 }
