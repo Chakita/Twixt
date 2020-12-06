@@ -81,7 +81,6 @@ class Card extends React.Component {
 function InterestPage() {
   return (
     <div>
-<<<<<<< HEAD
       <button
         style={{
           marginLeft: "80px",
@@ -101,26 +100,6 @@ function InterestPage() {
       </button>
 
       <h1 className="heading">Pick your interests</h1>
-=======
-      <h1 className="heading">Pick your interests</h1>
-      <button 
-        style={{
-        marginLeft: "45%",
-        width: "120px",
-        textAlign: "center",
-        }} 
-        className="btn btn-outline-info btn-lg"
-        onClick={() => 
-          {
-          Axios.post("http://localhost:8080/addInterest",{interests,username:localStorage.getItem("username")})
-          .then(result => console.log(result))
-          .catch(err => console.log(err))
-
-          window.location = "/people"
-        }
-        }
-      >Continue</button>
->>>>>>> 864865d6abcd45d9960269f07155304fff4f2e0e
       <table>
         <tbody>
           <tr>
