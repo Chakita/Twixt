@@ -10,9 +10,6 @@ import React from "react";
 */
 import "./styling/homepage.css";
 import Carousel from "react-bootstrap/Carousel";
-import music from "./images/music.png";
-import dance from "./images/dance.png";
-import sports from "./images/sports.png";
 import Event1 from "./images/Event1.jpg";
 import Event2 from "./images/Event2.jpg";
 import Event3 from "./images/Event3.jpg";
