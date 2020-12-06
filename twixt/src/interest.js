@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link, useHistory} from "react-router-dom";
 import "./styling/interest.css";
 import music from "./images/music.png";
 import dance from "./images/dance.png";
@@ -24,13 +25,11 @@ class Button extends React.Component {
   render() {
     var margin = {
       marginLeft: "80px",
-      width: "75px",
+      width: "110px",
       textAlign: "center",
     };
     return (
-      <button className="btn btn-outline-info" style={margin}>
-        Add
-      </button>
+      <button className="btn btn-lg btn-outline-info" style={margin}>Home</button>
     );
   }
 }
@@ -79,27 +78,30 @@ class Card extends React.Component {
 }
 
 function InterestPage() {
-  return (
-    <div>
-      <button
-        style={{
-          marginLeft: "80px",
-          width: "75px",
-          textAlign: "center",
-        }}
-        onClick={() =>
-          Axios.post("http://localhost:8080/addInterest", {
+  var history=useHistory();
+  var handleOnClick=(e)=>{
+    e.preventDefault();
+    Axios.post("http://localhost:8080/addInterest", {
             interests,
             username: localStorage.getItem("username"),
           })
-            .then((result) => console.log(result))
-            .catch((err) => console.log(err))
-        }
-      >
+          .then((result) => console.log(result))
+          .catch((err) => console.log(err))
+          history.push("/people")
+  }
+  return (
+    <div>
+      <h1 className="heading">Pick your interests</h1>
+      <button
+        style={{
+          marginLeft: "38%",
+          width: "110px",
+          textAlign: "center",
+        }} className="btn btn-lg btn-outline-info"
+        onClick={(e)=>{handleOnClick(e)}}>
         Continue
       </button>
-
-      <h1 className="heading">Pick your interests</h1>
+      <Link to={"/home"}><Button/></Link>
       <table>
         <tbody>
           <tr>
