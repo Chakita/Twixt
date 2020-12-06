@@ -61,4 +61,23 @@ router.post('/',(req,res)=>{
     })  
 })
 
+router.get("/people",(req,res) => {
+    let userInterests=[]
+    User.findOne({email:req.query.email})
+    .then(result=>{
+        userInterests = result.interests;
+        // console.log('hi',userInterests)
+        User.find({interests:userInterests})
+        .then(result => {
+            console.log("Similar users",result)
+        res.json(result)
+    });
+    }
+    )
+    // let toBeSent = [];
+    
+
+    // res.json(req.query.email)
+})
+
 module.exports=router;
