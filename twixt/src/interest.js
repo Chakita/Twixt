@@ -100,9 +100,13 @@ function InterestPage() {
         textAlign: "center",
         }} 
         onClick={() => 
+          {
           Axios.post("http://localhost:8080/addInterest",{interests,username:localStorage.getItem("username")})
           .then(result => console.log(result))
           .catch(err => console.log(err))
+
+          window.location = "/people"
+        }
         }
       >Continue</button>
 
