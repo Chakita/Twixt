@@ -92,13 +92,14 @@ function InterestPage() {
 
   return (
     <div>
+      <h1 className="heading">Pick your interests</h1>
       <button 
         style={{
-        
-        marginLeft: "80px",
-        width: "75px",
+        marginLeft: "45%",
+        width: "120px",
         textAlign: "center",
         }} 
+        className="btn btn-outline-info btn-lg"
         onClick={() => 
           {
           Axios.post("http://localhost:8080/addInterest",{interests,username:localStorage.getItem("username")})
@@ -109,8 +110,6 @@ function InterestPage() {
         }
         }
       >Continue</button>
-
-      <h1 className="heading">Pick your interests</h1>
       <table>
         <tbody>
           <tr>
