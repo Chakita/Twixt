@@ -1,5 +1,5 @@
 import axios from "axios";
-import "./styling/people.css"
+import "./styling/people.css";
 import React, { Component } from "react";
 
 class People extends Component {
@@ -27,10 +27,11 @@ class People extends Component {
   render() {
     return (
       <div>
-        <ul>
+        <h1>People with Similar interests as you</h1>
+        <ul className="people">
           {this.state.similarPeople.map((person) => {
             console.log(person);
-            return <li>{person.email}</li>;
+            return <li className="plist">{person.email}</li>;
           })}
         </ul>
       </div>
